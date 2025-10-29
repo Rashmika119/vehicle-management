@@ -1,0 +1,180 @@
+id,first_name,last_name,email,car_make,car_model,vin,manufactured_date,age_of_the_vehicle
+f00dacef-1323-40fc-93f2-a02b9f873ce0,Emily,Hicks,emily.hicks@email.com,Jeep,Compass,3C4NJDBB0KT123456,2022-05-02T00:00:00.000Z,3
+cc5b5531-868a-4d0b-8e30-f9c432c12ff4,Virginia,Sanders,virginia.s@email.com,Fiat,500,3C3CFFER0KT123456,2022-05-05T00:00:00.000Z,3
+437e1eb7-846f-44cb-8f6e-997226a3e604,Samuel,Hicks,samuel.hicks@email.com,Honda,Insight,19XZE4F52KE123456,2022-05-08T00:00:00.000Z,3
+aa3912cb-47fb-4136-83ef-32c49703a657,Arthur,Butler,arthur.butler@email.com,GMC,Acadia,1GKKNWLS0KZ123456,2022-05-12T00:00:00.000Z,3
+5596fab4-f362-4a31-8cd7-576277a701d1,Anna,Day,anna.day@email.com,Mini,Hardtop,WMWXP5C50K2T12345,2022-05-14T00:00:00.000Z,3
+306811c9-9694-459a-b56c-fd4fb42fb232,Christopher,Martin,chris.martin@email.com,Dodge,Charger,2C3CDXHG0KH123456,2022-05-19T00:00:00.000Z,3
+2a94a41a-cfb0-4022-8f65-5317f17a1e5d,Rachel,Murphy,rachel.murphy@email.com,Dodge,Durango,1C4RDHAG0KC123456,2022-05-19T00:00:00.000Z,3
+f2984ab7-1182-4f53-82ce-e6e1c3462aec,Maria,Dixon,maria.dixon@email.com,GMC,Canyon,1GTG5CEN0K1123456,2022-05-26T00:00:00.000Z,3
+a5bd53e2-6bb7-40e9-97d0-629cd30bfc3f,Louis,Woods,louis.woods@email.com,Mini,Clubman,WMWZC5C50K3W12345,2022-05-27T00:00:00.000Z,3
+c68ed1ba-4ccc-4485-a566-1e15b34fc960,Ashley,Baker,ashley.baker@email.com,Lamborghini,Urus,ZPBUA1ZL0KLA12345,2022-05-31T00:00:00.000Z,3
+fe163794-cd65-4f89-8438-34cc95575cd1,Teresa,Webb,teresa.webb@email.com,Chevrolet,Malibu,1G1ZD5ST0KF123456,2022-06-01T00:00:00.000Z,3
+ee27c3b9-e674-4e5f-a1f9-7129aa15fd71,Bobby,Bryant,bobby.bryant@email.com,Acura,TLX,19UUB3F50KA123456,2022-06-02T00:00:00.000Z,3
+fc8eaeda-cbd2-462b-8f9e-a5ccc021ef59,Amanda,Roberts,amanda.r@email.com,Toyota,RAV4,2T3P1RFV8KW123456,2022-06-12T00:00:00.000Z,3
+7a1e6b88-36e8-4576-9a04-af4c0208eaf9,Debra,Fox,debra.fox@email.com,Porsche,Boxster,WP0CA2A89KS123456,2022-06-13T00:00:00.000Z,3
+fbc9f886-028b-4bd2-bdb1-3c3e5e6e7215,Gerald,Owens,gerald.owens@email.com,Ford,Bronco,1FMCU9GD0KUA12345,2022-06-15T00:00:00.000Z,3
+bf20f918-aabd-4480-9ca5-97cfc6193922,Janice,Mason,janice.mason2@email.com,Lexus,GX,JTJAM7BX0K5123456,2022-06-19T00:00:00.000Z,3
+7f8a7e10-5a26-40d5-b923-5543a3a372c2,Sarah,Johnson,sarah.j@email.com,Honda,Accord,2HGFC2F59HH123456,2022-06-20T00:00:00.000Z,3
+198ff732-3db2-456e-b918-76313a58dc19,Megan,Richardson,megan.r@email.com,Porsche,Cayenne,WP1AA2AY0KDA12345,2022-06-23T00:00:00.000Z,3
+adac1dcc-48d6-4701-a3fa-42e8b48f93c7,Virginia,Mason,virginia.mason@email.com,BMW,Z4,WBAHF9C00KWW12345,2022-06-25T00:00:00.000Z,3
+52c1d091-010f-4e46-8724-b973a9b15953,Ralph,Barnes,ralph.barnes@email.com,Chevrolet,Traverse,1GNEVHKW0KJ123456,2022-06-30T00:00:00.000Z,3
+67949db0-6cd3-470b-a4fa-f1c26d808f4c,Marilyn,Harvey,marilyn.h@email.com,Mercedes-Benz,S-Class,WDDUX8FB0KA123456,2022-07-03T00:00:00.000Z,3
+4e673838-c3f9-43f4-8d95-c335c8748e93,Jack,Dixon,jack.dixon@email.com,Cadillac,CT4,1G6DR5RK0K0123456,2022-07-07T00:00:00.000Z,3
+85fc7348-d870-4c32-a32b-875c92ff7d46,Julie,Torres,julie.torres@email.com,Lincoln,Aviator,5LM5J7XC0KGL12345,2022-07-11T00:00:00.000Z,3
+35b948c0-a177-4108-8926-65e098173bd3,Harold,Dixon,harold.dixon@email.com,Hyundai,Palisade,KM8R8DHE0KU123456,2022-07-13T00:00:00.000Z,3
+ef7b99df-c7f8-43a6-85eb-4d9db51501db,Donna,Walker,donna.walker@email.com,Buick,Enclave,5GAEVAKW0KJ123456,2022-07-14T00:00:00.000Z,3
+5329925e-1725-499a-a4a2-8f6bd9f9fd8e,Douglas,Hicks,douglas.h@email.com,Audi,Q8,WA1VVAF70KD123456,2022-07-19T00:00:00.000Z,3
+f41d11e5-ead1-45f3-80dc-923a7208354a,Randy,Diaz,randy.diaz@email.com,Volvo,S60,7JR102FK0KG123456,2022-07-20T00:00:00.000Z,3
+7841012c-de23-4acf-ab86-88b70fae40ff,Lawrence,Jenkins,lawrence.j@email.com,Audi,A6,WAUFFAFC0KN123456,2022-07-25T00:00:00.000Z,3
+64273726-bdd3-4b2e-b272-e95b658f1d9a,Rebecca,Edwards,rebecca.e@email.com,Mercedes-Benz,GLC,WDC0G4KB0KF123456,2022-07-27T00:00:00.000Z,3
+993c6c40-3592-40df-b0d8-5c4a135da749,James,Hernandez,james.h@email.com,Nissan,Altima,1N4AL3AP9JC123456,2022-07-30T00:00:00.000Z,3
+4e3e991a-011f-44e3-9b1e-dc42aa088156,Clarence,Day,clarence.day@email.com,Lincoln,Nautilus,2LMPJ8LP0KBL12345,2022-07-31T00:00:00.000Z,3
+cfb72ef7-9f8b-49ed-9ac6-96cc891a5cdb,Janet,Mason,janet.mason@email.com,Subaru,Impreza,4S3GTAA62K3123456,2022-08-07T00:00:00.000Z,3
+74c321e9-f127-42a0-a508-a5dce8c43f6a,Willie,Hamilton,willie.h@email.com,Chrysler,Voyager,2C4RC1FG0KR123456,2022-08-09T00:00:00.000Z,3
+d1a6e117-a41f-40af-9e70-96116d577070,Katherine,Morris,katherine.m@email.com,Mazda,CX-9,JM3TCBDY0K0123456,2022-08-11T00:00:00.000Z,3
+6d7c2f3f-b499-4909-8a81-95a62fbec6f3,Sandra,Lopez,sandra.lopez@email.com,Alfa Romeo,Giulia,ZARFAEAN0K7123456,2022-08-16T00:00:00.000Z,3
+c01eb3ec-351c-414d-b471-afe5743aeddc,Raymond,Webb,raymond.webb@email.com,Land Rover,Evoque,SALZP2FX0KH123456,2022-08-19T00:00:00.000Z,3
+a3de655a-6a03-46b9-a5d4-055e648e485b,Jane,Sims,jane.sims@email.com,Mazda,CX-30,3MVDMAEM0KM123456,2022-08-22T00:00:00.000Z,3
+aecdef0e-b712-492c-a10e-b50e05f0bba0,Heather,James,heather.james@email.com,Mitsubishi,Eclipse Cross,JA4ASUAX0KZ123456,2022-08-24T00:00:00.000Z,3
+ca451449-e660-4d89-b7cf-ddbbb2542379,William,Thomas,w.thomas@email.com,Volkswagen,Jetta,3VW2B7AJ9KM123456,2022-08-25T00:00:00.000Z,3
+531ddfdb-17c6-4120-9555-ad77bdc512b3,Sara,Fox,sara.fox@email.com,Genesis,GV70,KMUHBDSM0KU123456,2022-08-25T00:00:00.000Z,3
+4b41f0eb-df23-4c16-8d10-dc10e2b25b23,Sean,Patterson,sean.p@email.com,Subaru,Crosstrek,JF2GTABC0KH123456,2022-08-29T00:00:00.000Z,3
+f2c1baf9-0839-4e4a-82c3-699e11fb867b,Deborah,Fox,deborah.fox2@email.com,Kia,Stinger,KNAE65LC0K6123456,2022-08-31T00:00:00.000Z,3
+315749a7-5d73-4e4f-b110-640ecf6d5e62,Deborah,Kennedy,deborah.k@email.com,Kia,Forte,3KPF24AD0KE123456,2022-09-02T00:00:00.000Z,3
+471b0bc1-c212-429c-b12c-f03960da953e,Beverly,Sullivan,beverly.s@email.com,Land Rover,Defender,SALEP2BX0KA123456,2022-09-04T00:00:00.000Z,3
+d940a090-0750-49a9-9f8e-b9cb55b0f025,Lauren,Morgan,lauren.morgan@email.com,Jeep,Grand Cherokee,1C4RJFBG0KC123456,2022-09-08T00:00:00.000Z,3
+5746a835-9252-4a10-a72a-53925a1692ef,Daniel,Martinez,d.martinez@email.com,Mercedes-Benz,C-Class,WDDWF8DB9KA123456,2022-09-14T00:00:00.000Z,3
+867e9f5c-45eb-4e11-ae71-17cb2635dcb1,Lillian,Porter,lillian.porter@email.com,Mini,Convertible,WMWZC3C50K3T12345,2022-09-14T00:00:00.000Z,3
+9c12c431-2995-429d-abe1-7c89e3f6bc99,Peter,Flores,peter.flores@email.com,Kia,Telluride,5XYP5DHC0KG123456,2022-09-17T00:00:00.000Z,3
+c52dff00-9fc4-4ae9-8d1f-87f5d2bde99a,Norma,Ford,norma.ford@email.com,Volkswagen,Passat,1VWCA7A30KC123456,2022-09-18T00:00:00.000Z,3
+3ab7819a-de2b-4cb9-8625-d589c9497963,Jacqueline,Rice,jacqueline.r@email.com,Land Rover,Velar,SALYK2RX0KA123456,2022-09-20T00:00:00.000Z,3
+f2e30b80-ae74-46a4-a798-bc082f9bf1d1,Melissa,Phillips,melissa.p@email.com,Ford,Explorer,1FM5K8DH0KGA12345,2022-09-21T00:00:00.000Z,3
+6cb0ba6b-0389-47bd-87a9-caaccf47d9a8,Teresa,Brooks,teresa.brooks@email.com,Jaguar,E-PACE,SADHP2RX0K1123456,2022-09-29T00:00:00.000Z,3
+a3e3a6c7-e033-4811-bcae-5b31a93912db,Carol,Allen,carol.allen@email.com,Chrysler,300,2C3CCAGG0KH123456,2022-09-30T00:00:00.000Z,3
+1e8cbc28-d0f2-466c-bbe6-fcb150a6b47a,Samantha,Stewart,samantha.s@email.com,Nissan,Rogue,5N1AT3CA0KC123456,2022-10-03T00:00:00.000Z,3
+4f8f2eb0-0ab3-4532-862c-1bda08b67aea,Victor,Rice,victor.rice@email.com,Cadillac,XT6,1GYKNERS0KZ123456,2022-10-07T00:00:00.000Z,3
+a5d49de5-27ba-4ea7-9b1a-0a4938069306,Julia,Fisher,julia.fisher@email.com,Tesla,Model X,5YJXCBE20KF123456,2022-10-09T00:00:00.000Z,3
+ebe1e77d-738f-4dc0-bf47-88a42a606bdc,Richard,Moore,richard.m@email.com,Jeep,Wrangler,1C4HJXEG0KW123456,2022-10-12T00:00:00.000Z,3
+ce7b56a6-c54d-4be4-8264-0c432db75d67,Kathryn,Kennedy,kathryn.k@email.com,Porsche,Panamera,WP0AA2A79KDA12345,2022-10-13T00:00:00.000Z,3
+3ede7ec0-715d-4fbe-8e2b-9fc5b0146e11,Henry,Henderson,henry.h@email.com,BMW,X3,5UX23EU00K9N12345,2022-10-17T00:00:00.000Z,3
+7c7f4780-a754-425c-85ad-cb4c6650eefa,Scott,Kennedy,scott.kennedy@email.com,Audi,A8,WAUANAF88KN123456,2022-10-19T00:00:00.000Z,3
+bf778e55-c72e-4dae-aa96-5485947b3cb4,Margaret,Green,margaret.g@email.com,Bentley,Continental,SCBGC7ZA0KC123456,2022-10-25T00:00:00.000Z,3
+b4f5b3b3-eb38-45e3-89e0-c2add8e921a1,Jeremy,Porter,jeremy.porter@email.com,BMW,X7,5UXCW2C05K9L12345,2022-10-25T00:00:00.000Z,3
+73ec6af9-8183-408e-8e98-f62537b53813,Harold,Russell,harold.r@email.com,Infiniti,QX50,JN1BJ0RR0KM123456,2022-10-26T00:00:00.000Z,3
+eea7ac00-1b82-43f7-8766-deb817da1ffd,Janet,Howard,janet.howard@email.com,Cadillac,XT5,1GYKNDRS0KZ123456,2022-10-30T00:00:00.000Z,2
+1bae8813-8209-4c9a-a79b-4634751cd42e,Katherine,Henry,katherine.h2@email.com,Chevrolet,Trax,3GNCJNSB0KL123456,2022-11-01T00:00:00.000Z,2
+465f5e8c-c678-4ed2-98a2-17ac3c659bef,Thomas,Perez,thomas.p@email.com,Lexus,RX 350,2T2BZMCA0KC123456,2022-11-03T00:00:00.000Z,2
+8df45f44-b7c7-4f27-810b-7cfb0f684cba,Albert,Foster,albert.foster@email.com,Ram,ProMaster,3C6TRVAG0KE123456,2022-11-06T00:00:00.000Z,2
+4a7893ea-1316-4c9f-995a-b6f03626ce8c,Irene,Powell,irene.powell@email.com,Honda,Civic,2HGFC2F58KH123456,2022-11-07T00:00:00.000Z,2
+a73d0081-6ace-4861-af19-d155147efe54,Stephanie,Parker,steph.parker@email.com,Tesla,Model Y,5YJYGDEE0KF123456,2022-11-08T00:00:00.000Z,2
+afae0c8d-9dd2-4ea1-8a84-b49384b29ccd,Russell,Bennett,russell.b@email.com,Honda,Pilot,5FNYF6H90KB123456,2022-11-14T00:00:00.000Z,2
+7f741c36-694e-4a93-9793-b30fd9fd8421,Martha,Campbell,martha.c@email.com,Lexus,IS,JTHBA1D29K5123456,2022-11-19T00:00:00.000Z,2
+6cfd0ac9-0759-427d-91fd-e2dee3a47c25,Betty,King,betty.king@email.com,Land Rover,Range Rover,SALGS2SE0KA123456,2022-11-20T00:00:00.000Z,2
+650c543e-e9a0-4a74-943e-3c0853216481,Bruce,West,bruce.west@email.com,Toyota,4Runner,JTEBU5JR0K5123456,2022-11-21T00:00:00.000Z,2
+d4ec7921-8bf4-4436-ab1a-0b95c10c156f,Emily,Brown,emily.brown@email.com,Chevrolet,Silverado,3GCUKREC5FG123456,2022-11-25T00:00:00.000Z,2
+26c3f721-3d90-4c85-afd3-42171c473ae8,Larry,Henry,larry.henry@email.com,Dodge,Challenger,2C3CDZAG0KH123456,2022-11-25T00:00:00.000Z,2
+15fc9908-b427-4393-8e9b-da5c9148347f,Victoria,Rivera,victoria.r@email.com,Lexus,NX,JTJBARBZ0K2123456,2022-11-29T00:00:00.000Z,2
+06dc52ce-c1f6-4013-822c-5cd2bd520dce,Joe,Campbell,joe.campbell@email.com,Lincoln,Continental,1LN6L9NK0K5L12345,2022-12-01T00:00:00.000Z,2
+85c17629-12a9-440a-94e2-57d956c5b6e4,Susan,Lewis,susan.lewis@email.com,Volvo,XC90,YV4A22PK0K1123456,2022-12-05T00:00:00.000Z,2
+1b7bb08c-93cd-4b26-a098-4b12b45baa81,Jerry,Campbell,jerry.campbell@email.com,Subaru,Ascent,4S4WMAFD0K3123456,2022-12-07T00:00:00.000Z,2
+16dfb41d-8f86-4083-8352-f83c0d56d580,Eugene,Powell,eugene.powell@email.com,Hyundai,Santa Fe,5NMZTDLB0KH123456,2022-12-08T00:00:00.000Z,2
+4e5eb113-a38c-4cde-beca-22d4d9ce8b2c,Craig,Henry,craig.henry@email.com,Hyundai,Sonata,5NPE34AF0KH123456,2022-12-13T00:00:00.000Z,2
+1031818b-2d1f-401c-8885-65cbd2515f3c,Eugene,Myers,eugene.myers@email.com,Buick,Encore,KL4CJBSB0KB123456,2022-12-14T00:00:00.000Z,2
+50cacdbc-8042-4fe6-9491-263bb8fa6467,Christina,Reed,christina.r@email.com,Volkswagen,Tiguan,3VV2B7AX0KM123456,2022-12-15T00:00:00.000Z,2
+ac546e4d-761d-4bce-9076-584d3201fd5e,Robert,Wilson,robert.w@email.com,Mazda,CX-5,JM3KFBDM0K0123456,2022-12-18T00:00:00.000Z,2
+b4077671-09f1-45ac-9daa-992a7c371600,Angela,Gray,angela.gray@email.com,Genesis,GV80,KMUHBDSB0KU123456,2022-12-22T00:00:00.000Z,2
+28dd173c-049e-4ff7-95b7-8de1bb702bef,Kelly,Powell,kelly.powell@email.com,Genesis,G90,KMHGN4JE0KU123456,2022-12-25T00:00:00.000Z,2
+761a5ef3-d553-4686-8c14-d77b617f2051,Kimberly,Carter,kim.carter@email.com,Aston Martin,DB11,SCFRMFAW0KGL12345,2022-12-28T00:00:00.000Z,2
+a8572444-9598-46b1-9b40-b64b62538c56,Evelyn,Gibson,evelyn.gibson@email.com,Nissan,Sentra,3N1AB8BV0KL123456,2022-12-28T00:00:00.000Z,2
+53e4b3d9-9d45-425e-9fa4-c634ef294887,Maria,Lopez,maria.lopez@email.com,Hyundai,Elantra,5NPD84LF7KH123456,2023-01-05T00:00:00.000Z,2
+64983d97-3f10-40c6-ad92-65c397f0c119,Matthew,Nelson,matthew.n@email.com,McLaren,720S,SBM14DCA0KW123456,2023-01-09T00:00:00.000Z,2
+66bd6a82-cbe5-43bb-8cc7-b008eaa4b797,Diana,Perry,diana.perry@email.com,Nissan,Murano,5N1AZ2BH0KN123456,2023-01-12T00:00:00.000Z,2
+2e6f22d5-f8fb-49d4-88f4-4f3920d236c7,Marie,Castillo,marie.castillo@email.com,Buick,LaCrosse,1G4ZP5SS0KU123456,2023-01-13T00:00:00.000Z,2
+f27767d0-034a-41cc-83a0-db7b0df021d2,Walter,Mills,walter.mills@email.com,Audi,Q7,WA1AVAFY0KD123456,2023-01-15T00:00:00.000Z,2
+40e5f1bc-6c86-4281-870a-7946ffbad6f2,John,Smith,john.smith@email.com,Toyota,Camry,1HGBH41JXMN109186,2023-01-15T00:00:00.000Z,2
+33c3c42b-a571-4ddf-bfd8-0448d0482f0e,Kyle,Peterson,kyle.peterson@email.com,Buick,Envision,LRBFXESX0KD123456,2023-01-17T00:00:00.000Z,2
+f36c6a33-cb51-4cec-893a-20680e3dba31,Ruby,Reid,ruby.reid@email.com,Volvo,V60,7JR102TK0KG123456,2023-01-19T00:00:00.000Z,2
+29bd6d41-3c54-400f-8ce6-1a43ca9143a1,Jonathan,Rogers,jonathan.r@email.com,Subaru,Forester,JF2SKADC0KH123456,2023-01-22T00:00:00.000Z,2
+386ebd79-bac6-4e94-bd08-bfd27170f6be,Pamela,Reid,pamela.reid@email.com,Mazda,CX-50,JM1GJAL60K0123456,2023-01-25T00:00:00.000Z,2
+60fcfb73-3586-4ef4-b8ea-3d56d564af5e,Paul,Robinson,paul.rob@email.com,Lincoln,Navigator,5LMJJ2LT0KEL12345,2023-01-25T00:00:00.000Z,2
+c366ba2a-6a76-4111-9e9c-0481fed1a651,Kathleen,Hayes,kathleen.h@email.com,Lincoln,Corsair,5LMCJ2D91KUL12345,2023-01-31T00:00:00.000Z,2
+ccaffdbe-03da-4454-a86f-f40b82627d00,Diane,Crawford,diane.c@email.com,Nissan,Maxima,1N4AA6AV0KC123456,2023-01-31T00:00:00.000Z,2
+1831130a-bc53-4197-a07e-c04ed11f4936,Brandon,Cooper,brandon.c@email.com,Acura,RDX,5J8TC2H60KL123456,2023-02-06T00:00:00.000Z,2
+86ac1518-5d7e-41a1-8bbd-982094ece9fe,Carlos,Reid,carlos.reid@email.com,Dodge,Ram 1500,1C6SRFHT0KN123456,2023-02-07T00:00:00.000Z,2
+92095ad5-5f2f-4ff4-9ff1-c442625c5a3e,Joyce,Cole,joyce.cole@email.com,Fiat,124 Spider,JC1NFAEK0K0123456,2023-02-09T00:00:00.000Z,2
+02b597cd-fcde-4986-8fb3-89f135f85f01,George,Young,george.young@email.com,Mitsubishi,Outlander,JA4J3UA89KZ123456,2023-02-11T00:00:00.000Z,2
+0e6ad1b6-348d-42cb-b34c-b24ab9fb1b1d,Howard,Crawford,howard.c@email.com,GMC,Yukon,1GKS2BKC0KR123456,2023-02-13T00:00:00.000Z,2
+a0757b85-e4d8-4551-ad74-d602def652ba,Patricia,Jackson,patricia.j@email.com,GMC,Sierra,1GTU9EED0KZ123456,2023-02-14T00:00:00.000Z,2
+2e07b26d-1343-48ff-a82c-18bc2e9697d9,Brian,Campbell,brian.c@email.com,Chevrolet,Equinox,2GNAXUEV0K6123456,2023-02-18T00:00:00.000Z,2
+7d13e97a-c7bc-4498-ba60-233292bd45d0,Ralph,Crawford,ralph.crawford@email.com,Ford,EcoSport,MAJ6P1UL0KC123456,2023-02-19T00:00:00.000Z,2
+d1bd7550-d062-46a5-916a-f23fdc0889bd,Jose,Price,jose.price@email.com,Toyota,Highlander,5TDBZRFH0KS123456,2023-02-19T00:00:00.000Z,2
+8adf0c7d-d842-4340-82bb-a4dcf857bee5,Frances,Simmons,frances.s@email.com,Dodge,Journey,3C4PDCAB0KT123456,2023-02-24T00:00:00.000Z,2
+f3c2fe6c-b3a7-48a5-8c2e-357188f548d9,Roy,Castillo,roy.castillo@email.com,Toyota,Corolla,2T1BURHE0KC123456,2023-02-25T00:00:00.000Z,2
+f87d77e3-2f93-4483-b292-dac9e25c087f,Jessica,Garcia,jessica.g@email.com,BMW,X5,5UXCR6C09L9D12345,2023-02-28T00:00:00.000Z,2
+c3267947-5c78-43e9-9bc1-9a24597399b5,Denise,Tucker,denise.tucker@email.com,Jaguar,XE,SAJAD4BX0KCP12345,2023-03-02T00:00:00.000Z,2
+41cba9f6-ef36-4606-be28-ba320e1af5d1,Judith,Hughes,judith.hughes@email.com,Volkswagen,Atlas,1V2GR2CA0KC123456,2023-03-04T00:00:00.000Z,2
+25bcc95c-fbf2-48a1-9cc0-d86d785ce61d,Earl,Dixon,earl.dixon@email.com,Subaru,Legacy,4S3BWAN65K3123456,2023-03-06T00:00:00.000Z,2
+812d4809-3ea2-434b-b117-e2d64a650f26,Roger,Stephens,roger.s@email.com,Mitsubishi,RVR,JA4AX2A37KZ123456,2023-03-08T00:00:00.000Z,2
+940cabf6-1087-4096-9ce1-1a7df00b8be6,Michael,Williams,m.williams@email.com,Ford,F-150,1FTFW1E84MFA12345,2023-03-10T00:00:00.000Z,2
+8df239d0-1d28-4eb0-95ae-c4a004fd163d,Keith,Watson,keith.watson@email.com,Land Rover,Discovery,SALCP2RX0KH123456,2023-03-13T00:00:00.000Z,2
+30f411eb-f5bb-4d1b-8e04-102bea34bb5c,Ryan,Mitchell,ryan.m@email.com,Rolls-Royce,Ghost,SCA664S50KUX12345,2023-03-15T00:00:00.000Z,2
+cb8845b9-a769-4cf3-b822-435862aa5f73,Mark,Hall,mark.hall@email.com,Genesis,G80,KMTG54LE0KU123456,2023-03-18T00:00:00.000Z,2
+6acb5938-32e2-4b4f-963f-11bf3c62fc58,Jimmy,Morales,jimmy.m@email.com,Volkswagen,Golf,3VW2T7AJ0KM123456,2023-03-20T00:00:00.000Z,2
+9f902699-e44d-4231-9c5f-f64ee1765d95,Philip,Graham,philip.graham@email.com,Mitsubishi,Mirage,ML32A3HJ0KH123456,2023-03-22T00:00:00.000Z,2
+69304e64-685f-44d8-a57f-ed03c65cd64c,Adam,Bell,adam.bell@email.com,GMC,Terrain,3GKALMEK0KL123456,2023-03-27T00:00:00.000Z,2
+ac4801a6-2fba-40f2-bf5e-d1441824dc0f,Linda,Taylor,linda.t@email.com,Kia,Sorento,5XYPGDA52KG123456,2023-03-30T00:00:00.000Z,2
+c8b39abc-9461-4232-b9d8-1ca20c8645cb,Fred,Morales,fred.morales@email.com,Acura,ILX,19VDE1F52KE123456,2023-04-01T00:00:00.000Z,2
+71a3f34d-f4ea-4fab-9fa7-cf74812b9126,Kenneth,Scott,kenneth.s@email.com,Maserati,Ghibli,ZAM57YTA0K1123456,2023-04-02T00:00:00.000Z,2
+74d1d313-4cf6-4256-9d5f-a6f1b4412f35,Judith,Morales,judith.morales@email.com,Mercedes-Benz,G-Class,WDCYC3HF0KX123456,2023-04-07T00:00:00.000Z,2
+7d7a6ba1-f9cb-4a86-b4d9-eb03efb1aa8a,Nicholas,Collins,nick.collins@email.com,Audi,Q5,WA1ENAFY0K2123456,2023-04-09T00:00:00.000Z,2
+a822be11-9b64-407a-8bb8-f73d5e5201eb,Rose,Tucker,rose.tucker@email.com,Tesla,Cybertruck,7SAYGDEF0KA123456,2023-04-13T00:00:00.000Z,2
+3957a667-f5cc-4b90-85ec-eb7af3724c46,Alice,Alexander,alice.a@email.com,Porsche,Macan,WP1AA2A59KLB12345,2023-04-14T00:00:00.000Z,2
+113b9b04-81a2-441e-9de7-b46d3f02d81e,Nancy,Thompson,nancy.t@email.com,Acura,MDX,5J8YD4H86KL123456,2023-04-15T00:00:00.000Z,2
+7bdb2d96-9333-4b4b-8cd0-152f3df63f2b,Timothy,Cox,timothy.cox@email.com,Infiniti,QX60,5N1DL0MM0KC123456,2023-04-18T00:00:00.000Z,2
+1bc9695a-59cd-4550-9d76-2a4a7d31e40e,Lisa,Rodriguez,lisa.rod@email.com,Audi,A4,WAUZZZF47KN123456,2023-04-22T00:00:00.000Z,2
+2688a836-d42a-4133-8698-e74672664324,Kathryn,Ross,kathryn.ross@email.com,Tesla,Model S,5YJSA1E20KF123456,2023-04-23T00:00:00.000Z,2
+b15178be-8094-4af8-860c-b9dd2558f2f1,Anne,Stephens,anne.stephens@email.com,Infiniti,Q60,JN1EV7EK0KM123456,2023-04-25T00:00:00.000Z,2
+a4ccfe67-ee37-4639-b2f5-1d4c88a4595d,Amy,Reynolds,amy.reynolds@email.com,Chevrolet,Blazer,3GNKBFRS0KS123456,2023-04-27T00:00:00.000Z,2
+aefec194-c914-4c70-87cb-713cc01930b6,Phyllis,Hunter,phyllis.h@email.com,Mercedes-Benz,GLE,4JGFB4KB0KA123456,2023-05-07T00:00:00.000Z,2
+2d1d191a-7c2e-4888-9474-0951aec00a18,Shirley,Griffin,shirley.g@email.com,Cadillac,CT5,1G6DT5RS0K0123456,2023-05-08T00:00:00.000Z,2
+fc32bcf9-8ad8-4eb5-837a-657c35db6116,Jacob,Evans,jacob.evans@email.com,BMW,3 Series,WBA8E1G50KNU12345,2023-05-14T00:00:00.000Z,2
+90ff4cb8-ca0c-43ef-a5ed-531f2b03b3d8,David,Jones,david.jones@email.com,Tesla,Model 3,5YJ3E1EA0KF123456,2023-05-18T00:00:00.000Z,2
+9593ad94-6b40-4f1f-b149-c2659ed47373,Gloria,Richards,gloria.r2@email.com,Volvo,S90,YV1A22ML0K1123456,2023-05-19T00:00:00.000Z,2
+59329e78-0b66-4d53-aa99-0285340af44c,Carl,Ellis,carl.ellis@email.com,BMW,5 Series,WBAJB0C09KWW12345,2023-05-21T00:00:00.000Z,2
+fe33cff7-09f5-4af7-a63d-8062276f471b,Christine,Warren,christine.w@email.com,Infiniti,QX80,JN8AZ2NE0K9123456,2023-05-25T00:00:00.000Z,2
+f7aeae90-ee6d-497f-91d8-fe6978f59a38,Dennis,Ward,dennis.ward@email.com,Volvo,XC60,YV4A22RK0K1123456,2023-05-25T00:00:00.000Z,2
+8b41485e-2609-4b44-ac73-d22e990ad969,Steven,Clark,steven.clark@email.com,Cadillac,Escalade,1GYS4HKJ0KR123456,2023-05-29T00:00:00.000Z,2
+23d2cd0d-0321-4e5a-b191-6b5c549b5ac9,Gloria,Coleman,gloria.c@email.com,Mercedes-Benz,E-Class,WDDZF8JB0KA123456,2023-05-31T00:00:00.000Z,2
+b4c6e955-ffd2-4141-8d1a-76c2db4a4869,Christina,Warren,christina.warren@email.com,Nissan,Armada,JN8AY2NE0K9123456,2023-05-31T00:00:00.000Z,2
+d708f08a-b586-4071-a6d3-67ce77be958e,Martin,Flores,martin.flores@email.com,Mitsubishi,Lancer,JA32U8FW0KU123456,2023-06-07T00:00:00.000Z,2
+2489fbdc-3737-4eaa-b8cf-a3c43d050457,Edward,Wright,edward.w@email.com,Jaguar,F-PACE,SADCJ2FX0KA123456,2023-06-07T00:00:00.000Z,2
+c4c1ceaf-b067-4005-8daf-2be66331e791,Jeremy,Ramirez,jeremy.r@email.com,Chrysler,Pacifica,2C4RC1BG0KR123456,2023-06-08T00:00:00.000Z,2
+5e178da9-dd5f-44c0-afa3-c1ffde75c323,Willie,Mason,willie.mason@email.com,Hyundai,Kona,KM8K53A58KU123456,2023-06-10T00:00:00.000Z,2
+b299b12d-34c2-48a5-ab7b-b29c01860d23,Jennifer,Anderson,jen.anderson@email.com,Subaru,Outback,4S4BSANC0K3123456,2023-06-11T00:00:00.000Z,2
+c70b811c-8bea-47c1-9914-bdb19a8d2f13,Theresa,Meyer,theresa.meyer@email.com,Buick,Regal,W04GT5E50KG123456,2023-06-13T00:00:00.000Z,2
+f9cd3326-e4e2-45b1-ae2b-03865f47fc02,Janice,Long,janice.long@email.com,Mazda,MX-5 Miata,JM1NDAD76K0123456,2023-06-16T00:00:00.000Z,2
+5093cbdb-2b2a-4fb5-b08f-4da54e1caa64,Catherine,Meyer,catherine.meyer@email.com,Volkswagen,Arteon,3VWE57BU0KM123456,2023-06-19T00:00:00.000Z,2
+3feeda0a-dfff-4f95-83ab-d5fbec814200,Judith,Boyd,judith.boyd2@email.com,Mazda,Mazda3,3MZBPAFL0KM123456,2023-06-25T00:00:00.000Z,2
+5bd8205a-3308-4b2b-b6d9-946faf32951f,Tyler,Sanchez,tyler.sanchez@email.com,Hyundai,Tucson,5NMJUDAF0KH123456,2023-06-26T00:00:00.000Z,2
+593a82d1-bf4b-4913-ac95-26811e0879ff,Dorothy,Ford,dorothy.ford@email.com,Genesis,G70,KMTG64TA0KU123456,2023-06-27T00:00:00.000Z,2
+b477a47f-9ddd-4fc0-a677-d9483dac8122,Andrew,Richards,andrew.r@email.com,Jaguar,I-PACE,SADHB2S16K1123456,2023-07-02T00:00:00.000Z,2
+577d2436-5f33-4bfe-bfd1-e36c4252026f,Eric,Cook,eric.cook@email.com,Kia,Sportage,KNDPMCAC0K7123456,2023-07-03T00:00:00.000Z,2
+84167d8b-238c-41cd-9c08-e52abe368c62,Barbara,Lee,barbara.lee@email.com,Ram,1500,1C6SRFFT0KN123456,2023-07-08T00:00:00.000Z,2
+d3850473-c7af-49dc-8d0a-b027f25dbae8,Lois,Warren,lois.warren@email.com,Jeep,Gladiator,1C6HJTAG0KL123456,2023-07-14T00:00:00.000Z,2
+23f015e0-7517-4391-868e-b64023b0d2d5,Billy,Wallace,billy.wallace@email.com,Jaguar,XF,SAJBD4BX0KCY12345,2023-07-15T00:00:00.000Z,2
+a48566ea-3e6d-4488-be8b-606e7645d8d1,Joshua,Adams,joshua.adams@email.com,Ferrari,Roma,ZFF9CPA00K0123456,2023-07-19T00:00:00.000Z,2
+03e6c2d7-e338-48eb-8bc7-72523a1926ad,Carl,Kelly,carl.kelly@email.com,Mini,Countryman,WMZYT9C50K3T12345,2023-07-21T00:00:00.000Z,2
+d441a355-e40e-4447-a145-367081c3cd1f,Andrea,Hunter,andrea.hunter@email.com,Toyota,Prius,JTDKARFP0K3123456,2023-07-26T00:00:00.000Z,2
+b765dce6-4b7c-495a-9103-a3a098e4f5b9,Cheryl,Washington,cheryl.w@email.com,Jeep,Cherokee,1C4PJMCB0KD123456,2023-07-29T00:00:00.000Z,2
+85760dbf-ed78-456f-bf33-5fcc0daf48b0,Carolyn,Hunter,carolyn.h@email.com,Kia,Seltos,KNDEUCAA0K7123456,2023-07-30T00:00:00.000Z,2
+7a0fb7ea-687a-4ea0-b4a7-83d758df33a0,Patrick,Meyer,patrick.meyer@email.com,Acura,NSX,19UNC1B00KA123456,2023-08-01T00:00:00.000Z,2
+c46eef9d-0906-420c-b9e5-c4d35761f0d5,Doris,Jordan,doris.jordan@email.com,Honda,Ridgeline,5FPYK3F77KB123456,2023-08-03T00:00:00.000Z,2
+0064cd4d-621a-4640-947f-14d7a7b6f8e5,Anthony,Turner,anthony.t@email.com,Honda,CR-V,2HKRM4H76KH123456,2023-08-05T00:00:00.000Z,2
+e050fa10-c2c6-4000-8cb4-5e51773dc70e,Jean,Boyd,jean.boyd@email.com,Ram,3500,3C63RRJL0KG123456,2023-08-07T00:00:00.000Z,2
+36a2ca49-4483-4902-bdda-2c959bb9ce6e,Judith,Wood,judith.wood@email.com,Ford,Edge,2FMPK4J96KBB12345,2023-08-07T00:00:00.000Z,2
+1dd0111a-448d-4884-9ea3-7b7ce92f788e,Eugene,Boyd,eugene.boyd@email.com,Tesla,Roadster,5YJRE1A14K1123456,2023-08-13T00:00:00.000Z,2
+530042d4-b107-47b2-899f-922bd44db1cc,Aaron,Bailey,aaron.bailey@email.com,Ram,2500,3C6UR5DL0KG123456,2023-08-14T00:00:00.000Z,2
+f1d65f75-8d0d-43ae-9fa2-44e3727b412a,Albert,Flores,albert.flores2@email.com,Ford,Mustang,1FA6P8CF0K5123456,2023-08-19T00:00:00.000Z,2
+27a40620-b737-4ed7-8813-24e5ab444dbd,Ann,Gonzales,ann.gonzales@email.com,Lexus,ES,58ABZ1B19KU123456,2023-08-19T00:00:00.000Z,2
+7ee17a91-650b-4967-a0aa-d79700c8a5ba,Kevin,White,kevin.white@email.com,Porsche,911,WP0AA2A78KS123456,2023-08-22T00:00:00.000Z,2
