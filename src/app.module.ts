@@ -17,11 +17,11 @@ import { HttpModule } from '@nestjs/axios';
     BullModule.forRoot({
       redis: {
         host: 'localhost',
-        port: 6379, // your Redis port
+        port: 6379, 
       },
     }),
     BullModule.registerQueue({
-      name: 'csvQueue', // must match @InjectQueue('csvQueue') in ProducerService
+      name: 'csvQueue', 
     }),
   ],
   controllers: [ConsumerController],

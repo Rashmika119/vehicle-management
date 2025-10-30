@@ -2,9 +2,7 @@ import { BadRequestException, Controller, FileTypeValidator, Get, Param, ParseFi
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Multer } from 'multer';
 import { VehicleService } from "./vehicle.service";
-import path from "path";
-import * as fs from 'fs';
-import type { Response } from 'express';
+
 
 
 @Controller('file')
@@ -35,14 +33,5 @@ export class VehicleController {
     }
 
 
-@Get('/file/download/:id')
-downloadFile(@Param('id') id: string, @Res() res: Response) {
-  const filePath = path.join(process.cwd(), 'exports', `${id}.csv`);
 
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).send("File not found");
-  }
-
-  res.download(filePath); 
-}
 }

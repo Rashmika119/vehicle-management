@@ -37,7 +37,7 @@ input SearchVehicleInput {
 type Mutation {
   createVehicle(vehicleInput: CreateVehicleInput!): Vehicle!
   updateVehiclle(id: String!, vehicle: UpdateVehicleInput!): Vehicle!
-  removeVehicle(id: String!): Vehicle!
+  removeVehicle(id: String!): Boolean!
 }
 
 input CreateVehicleInput {
@@ -52,11 +52,11 @@ input CreateVehicleInput {
 }
 
 input UpdateVehicleInput {
-  first_name: String!
-  last_name: String!
-  email: String!
-  car_make: String!
-  car_model: String!
-  vin: String!
-  manufactured_date: DateTime!
+  first_name: String
+  last_name: String
+  email: String
+  car_make: String
+  car_model: String
+  vin: String
+  manufactured_date: DateTime
 }

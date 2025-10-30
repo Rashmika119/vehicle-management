@@ -15,8 +15,8 @@ export class VehicleResolver {
 
   @Query(() => [Vehicle], { name: "getAllVehicles" })
   findAll(
-    @Args('pagination',{nullable:true})
-    pagination?:PaginationInput
+    @Args('pagination', { nullable: true })
+    pagination?: PaginationInput
   ) {
     return this.vehicleService.findAll(pagination);
   }
@@ -36,7 +36,7 @@ export class VehicleResolver {
     return this.vehicleService.update(id, vehicle)
   }
 
-  @Mutation(() => Vehicle, { name: 'removeVehicle' })
+  @Mutation(() => Boolean, { name: 'removeVehicle' }) 
   remove(@Args('id') id: string) {
     return this.vehicleService.remove(id);
   }

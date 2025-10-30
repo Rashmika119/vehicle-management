@@ -33,7 +33,7 @@ import { VehicleService } from './vehicle.service';
     }),
     HttpModule,
     MulterModule.register({
-      dest: './uploads', // folder to store uploaded files
+      dest: './uploads', 
     }),
   ],
   controllers: [VehicleController],

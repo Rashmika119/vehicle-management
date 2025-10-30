@@ -13,7 +13,7 @@ import * as fs from 'fs';
 
 @Injectable()
 export class VehicleService {
-constructor(@InjectRepository(Vehicle) private vehicleRepository: Repository<Vehicle>,
+  constructor(@InjectRepository(Vehicle) private vehicleRepository: Repository<Vehicle>,
     private readonly httpService: HttpService) { }
 
   private backgroundServiceUrl = 'http://localhost:3000/job';
@@ -48,22 +48,60 @@ constructor(@InjectRepository(Vehicle) private vehicleRepository: Repository<Veh
     }
   }
 
-  async update(id: string, updateVehicleInput: UpdateVehicleInput) {
-    let vehicle: Vehicle = this.vehicleRepository.create(updateVehicleInput);
-    vehicle.id = id;
-    return this.vehicleRepository.save(vehicle)
+  async update(id: string, updateVehicleInput: UpdateVehicleInput): Promise<Vehicle> {
+    console.log('Updating vehicle:', id, updateVehicleInput);
+
+    const existingVehicle = await this.vehicleRepository.findOne({ where: { id } });
+
+    if (!existingVehicle) {
+      throw new NotFoundException(`Vehicle with id ${id} not found`);
+    }
+
+    const vehicleToUpdate = this.vehicleRepository.merge(existingVehicle, updateVehicleInput);
+
+    if (updateVehicleInput.manufactured_date) {
+      vehicleToUpdate.age_of_the_vehicle = this.calculateAge(updateVehicleInput.manufactured_date);
+      console.log('Recalculated age:', vehicleToUpdate.age_of_the_vehicle);
+    }
+
+    const savedVehicle = await this.vehicleRepository.save(vehicleToUpdate);
+    console.log('Vehicle updated successfully');
+
+    return savedVehicle;
+  }
+  private calculateAge(manufacturedDate: Date): number {
+    const today = new Date();
+    const manufactured = new Date(manufacturedDate);
+
+    let age = today.getFullYear() - manufactured.getFullYear();
+    const monthDiff = today.getMonth() - manufactured.getMonth();
+    const dayDiff = today.getDate() - manufactured.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+
+    return age;
   }
 
-  async remove(id: string) {
-    let vehicle = await this.findOne(id)
-    if (vehicle) {
-      let result = await this.vehicleRepository.delete(id);
-      if (result.affected == 1) {
-        return result
-      }
+async remove(id: string): Promise<boolean> {
+    console.log('Deleting vehicle with id:', id);
+    
+    const vehicle = await this.findOne(id);
+    
+    if (!vehicle) {
+        throw new NotFoundException(`Vehicle with id ${id} not found`);
     }
-    throw new NotFoundException(`Record cannot find by id ${id}`)
-  }
+    
+    const result = await this.vehicleRepository.delete(id);
+    
+    if (result.affected === 1) {
+        console.log('Vehicle deleted successfully');
+        return true;
+    }
+    
+    throw new Error(`Failed to delete vehicle with id ${id}`);
+}
   async search(search: SearchVehicleInput): Promise<Vehicle[]> {
     const query = this.vehicleRepository.createQueryBuilder('vehicle');
     console.log("searched car model:  ", search.car_model)

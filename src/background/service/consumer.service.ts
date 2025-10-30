@@ -116,24 +116,28 @@ export class ConsumerService {
             csvContent += `${v.id},${v.first_name},${v.last_name},${v.email},${v.car_make},${v.car_model},${v.vin},${v.manufactured_date.toISOString()},${v.age_of_the_vehicle}\n`;
         });
         console.log("file created")
-        const exportDir = path.join(process.cwd(), 'exports');
+        const exportDir = path.join(process.cwd(),'exports');
         console.log("file stored temporarly in location:  ", exportDir)
         if (!fs.existsSync(exportDir)) fs.mkdirSync(exportDir);
 
         const filePath = path.join(exportDir, `${job.id}.csv`);
         fs.writeFileSync(filePath, csvContent);
+        console.log('File created at', filePath); 
 
-        console.log("file path: ", filePath);
 
-        const payload={
-            jobId:job.id,
-            fileUrl:`http://localhost:3000/file/download/${job.id}`,
-            message:`Export completed for vehicle age >= ${age_of_the_vehicle}`,
-            clientName
-        };
-        console.log("payload   :",payload)
+        const payload = {
+        jobId: job.id,
+        fileUrl: `http://localhost:3000/file/download/${job.id}`,
+        message: `Export completed for vehicle age >= ${age_of_the_vehicle}`,
+        clientName
+    };
+    console.log("payload   :", payload);
 
-    const targetUrl = 'http://localhost:3002/socket/notify'; 
+  
+    const targetUrl = 'http://localhost:3002/socket/notify';
+    
+    console.log("Sending notification to:", targetUrl);
+    
     try {
         const response = await firstValueFrom(
             this.httpService.post(targetUrl, payload)
@@ -141,11 +145,12 @@ export class ConsumerService {
         console.log('Notification sent successfully:', response.data);
     } catch (err) {
         console.error('Error sending notification:', err.message);
+        console.error('Full error:', err.response?.data); // Better error logging
     }
-        console.log("publish the notification")
+    
+    console.log("publish the notification");
 
-        return { success: true, filePath };
+    return { success: true, filePath };
+
     }
-
-
 }

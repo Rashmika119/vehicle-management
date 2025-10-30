@@ -5,25 +5,25 @@ export class UpdateVehicleInput{
 
 
 
-    @Field()
+    @Field({nullable: true})
     first_name: string
 
-    @Field()
+    @Field({nullable: true})
     last_name: string
 
-    @Field()
+    @Field({nullable: true})
     email: string
 
-    @Field()
+    @Field({nullable: true})
     car_make: string
 
-    @Field()
+    @Field({nullable: true})
     car_model: string
 
-    @Field()
+    @Field({nullable: true})
     vin: string
 
-    @Field()
+    @Field({nullable: true})
     manufactured_date: Date
 
 }
