@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { VehicleService } from './vehicle.service';
 import { Vehicle } from './entities/vehicle.entity';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver, ResolveReference } from '@nestjs/graphql';
 import { CreateVehicleInput } from './dto/create-vehicle.input';
 import { UpdateVehicleInput } from './dto/update-vehicle.input';
 import { SearchVehicleInput } from './dto/search-vehicle.input';
@@ -9,7 +9,7 @@ import { PaginationInput } from './dto/pagintion.input';
 
 
 
-@Resolver(() => Vehicle)
+@Resolver((of) => Vehicle)
 export class VehicleResolver {
   constructor(private readonly vehicleService: VehicleService) { }
 
@@ -18,6 +18,7 @@ export class VehicleResolver {
     @Args('pagination', { nullable: true })
     pagination?: PaginationInput
   ) {
+    console.log("find all called")
     return this.vehicleService.findAll(pagination);
   }
 
@@ -29,6 +30,11 @@ export class VehicleResolver {
   @Query(() => Vehicle, { name: "findVehicleById" })
   findOne(@Args("id") id: string) {
     return this.vehicleService.findOne(id)
+  }
+
+  @Query(()=>Vehicle,{name:"findVehicleByVin"})
+  getVehicle(@Args('vin') vin:string){
+    return this.vehicleService.findByVin(vin)
   }
 
   @Mutation(() => Vehicle, { name: "updateVehiclle" })
@@ -46,4 +52,10 @@ export class VehicleResolver {
   ): Promise<Vehicle[]> {
     return this.vehicleService.search(search)
   }
+
+  @ResolveReference()
+    resolvereferance(ref:{__typename:string,vin:string}){
+      return this.vehicleService.findByVin(ref.vin)
+    }
+  
 }

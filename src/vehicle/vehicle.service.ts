@@ -34,6 +34,10 @@ export class VehicleService {
     return this.vehicleRepository.findOne({ where: { id } });
   }
 
+  async findByVin(vin:string){
+    return this.vehicleRepository.find({where:{vin}})
+  }
+
   async create(vehicleObject: CreateVehicleInput): Promise<Vehicle> {
     try {
       let vehicle = this.vehicleRepository.create(vehicleObject

@@ -1,8 +1,9 @@
-import { Field, Int, ObjectType } from "@nestjs/graphql"
+import { Directive, Field, ID, Int, ObjectType } from "@nestjs/graphql"
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 
 
 @ObjectType()
+@Directive('@key(fields:"vin")')
 @Entity()
 export class Vehicle {
     @Field()
@@ -29,8 +30,8 @@ export class Vehicle {
     @Column()
     car_model: string
 
-    @Field()
-    @Column()
+    @Field(() => ID)
+    @Column({unique:true})
     vin: string
 
     @Field()
@@ -40,6 +41,5 @@ export class Vehicle {
     @Field(()=>Int) 
     @Column()
     age_of_the_vehicle:number
-
 
 }
