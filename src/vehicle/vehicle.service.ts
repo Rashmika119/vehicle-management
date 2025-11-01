@@ -30,12 +30,18 @@ export class VehicleService {
     });
   }
 
-  async findOne(id: string) {
-    return this.vehicleRepository.findOne({ where: { id } });
+  async findOne(id: string) : Promise<Vehicle> {
+    const vehicle = await this.vehicleRepository.findOne({ where: { id } });
+    if(!vehicle)
+    {
+      throw new NotFoundException("id not found")
+    }
+    return vehicle
   }
 
   async findByVin(vin:string){
-    return this.vehicleRepository.find({where:{vin}})
+    const vehicle = await this.vehicleRepository.findOne({where:{vin}})
+    return vehicle 
   }
 
   async create(vehicleObject: CreateVehicleInput): Promise<Vehicle> {

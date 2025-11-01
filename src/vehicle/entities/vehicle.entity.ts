@@ -30,7 +30,7 @@ export class Vehicle {
     @Column()
     car_model: string
 
-    @Field(() => ID)
+    @Field()
     @Column({unique:true})
     vin: string
 

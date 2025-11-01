@@ -28,12 +28,12 @@ export class VehicleResolver {
   }
 
   @Query(() => Vehicle, { name: "findVehicleById" })
-  findOne(@Args("id") id: string) {
+  findOne(@Args("id") id: string) : Promise<Vehicle>  {
     return this.vehicleService.findOne(id)
   }
 
   @Query(()=>Vehicle,{name:"findVehicleByVin"})
-  getVehicle(@Args('vin') vin:string){
+  getVehicle(@Args('vin') vin:string) {
     return this.vehicleService.findByVin(vin)
   }
 
