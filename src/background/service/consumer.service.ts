@@ -3,6 +3,7 @@ import { Process, Processor } from "@nestjs/bull";
 import { InjectRepository } from "@nestjs/typeorm";
 import type { Job } from "bull";
 import csvParser from "csv-parser";
+import { Logger } from '@nestjs/common';
 
 import * as fs from 'fs';
 import path from "path";
@@ -14,6 +15,10 @@ import { HttpService } from "@nestjs/axios";
 
 @Processor('csvQueue')
 export class ConsumerService {
+    
+
+     private readonly logger = new Logger(ConsumerService.name);
+
     constructor(
         @InjectRepository(Vehicle)
         private readonly vehicleRepo: Repository<Vehicle>,
@@ -28,6 +33,7 @@ export class ConsumerService {
         let failedRows = 0;
 
         return new Promise((resolve, reject) => {
+            
             const stream = fs.createReadStream(job.data.filePath)
                 .pipe(csvParser());
 
@@ -70,6 +76,18 @@ export class ConsumerService {
     }
 
     async saveRow(row: any) {
+
+        if(!row.vin){
+            this.logger.warn(`Skipping row without VIN: ${JSON.stringify(row)}`)
+            return;
+        }
+
+        const existing=await this.vehicleRepo.findOne({where:{vin:row.vin}});
+        if(existing){
+            this.logger.log(`Duplicate VIN found,skipping:${row.vin}`)
+            return
+        }
+
         const age_of_the_vehicle = await this.getAge(row.manufactured_date);
         const vehicle = this.vehicleRepo.create({
             first_name: row.first_name,
@@ -82,7 +100,8 @@ export class ConsumerService {
             age_of_the_vehicle: age_of_the_vehicle
         });
 
-        return this.vehicleRepo.save(vehicle);
+        await this.vehicleRepo.save(vehicle);
+        this.logger.log(`Inserted new vehicle with VIN :${row.vin}`)
     }
     async getAge(manufactured_date: string): Promise<number> {
         const today = new Date();
@@ -145,7 +164,7 @@ export class ConsumerService {
         console.log('Notification sent successfully:', response.data);
     } catch (err) {
         console.error('Error sending notification:', err.message);
-        console.error('Full error:', err.response?.data); // Better error logging
+        console.error('Full error:', err.response?.data);
     }
     
     console.log("publish the notification");

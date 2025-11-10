@@ -6,9 +6,11 @@ import { ProducerService } from '../service/producer.service';
 import path from 'path';
 import * as fs from 'fs';
 import type { Response } from 'express';
-
+import {NotFoundException,InternalServerErrorException,Logger} from "@nestjs/common";
 @Controller('job')
 export class ConsumerController {
+  private readonly logger=new Logger(ConsumerController.name)
+
   constructor(private readonly producerService: ProducerService) { }
 
   @Post('/import')
@@ -18,11 +20,12 @@ export class ConsumerController {
   ) file: Express.Multer.File) {
     console.log("import endpoint called: ", file.originalname)
     if (!file) {
+      this.logger.warn('No file received');
       throw new BadRequestException('File is required');
     }
 
-    console.log("File received:", file.originalname);
-    console.log("File path:", file.path);
+    this.logger.log(`File received: ${file.originalname}`);
+    this.logger.debug(`File path: ${file.path}`);
     return this.producerService.addImportJobs(file.path, file.originalname)
   }
 
@@ -41,10 +44,15 @@ downloadFile(@Param('id') id: string, @Res() res: Response) {
   console.log('download file path ---.',filePath)
 
   if (!fs.existsSync(filePath)) {
+    this.logger.error("the file you are asking to download is not found")
     return res.status(404).send("File not found");
   }
 
-  res.download(filePath); 
+  res.download(filePath,(err)=>{
+    if(err){
+      this.logger.error("Error of downloading the file");
+    }
+  }); 
 }
   // @Get('download/:jobId')
   // async downloadFile(
