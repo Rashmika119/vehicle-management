@@ -13,119 +13,61 @@ export class VehicleResolver {
   private readonly logger = new Logger(VehicleResolver.name);
   constructor(private readonly vehicleService: VehicleService) { }
 
-@Query(() => [Vehicle], { name: "getAllVehicles" })
-async findAll(
-  @Args('pagination', { nullable: true })
-  pagination?: PaginationInput
-): Promise<Vehicle[]> {
-  this.logger.log('Fetching all vehicles...');
-  
-  try {
+  @Query(() => [Vehicle], { name: "getAllVehicles" })
+  async findAll(@Args('pagination', { nullable: true }) pagination?: PaginationInput): Promise<Vehicle[]> {
+    this.logger.log('Fetching all vehicles...');
     const vehicles = await this.vehicleService.findAll(pagination);
-    this.logger.log(`Fetched ${vehicles.length} vehicles successfully.`);
+    this.logger.log(`Fetched ${vehicles.length} vehicles.`);
     return vehicles;
-  } catch (error) {
-    this.logger.error('Failed to fetch vehicles', error.stack);
-    return []; // gracefully return an empty array instead of throwing
-  }
-}
-  @Mutation(() => Vehicle, { name: "createVehicle" ,nullable:true})
-  async create(@Args('vehicleInput') vehicle: CreateVehicleInput,):Promise<Vehicle|null> {
-      this.logger.log('Creating a new vehicle...');
-    try {
-      const created = await this.vehicleService.create(vehicle);
-      this.logger.log(`Vehicle created successfully with ID: ${created.id}`);
-      return created;
-    } catch (error) {
-      this.logger.error('Failed to create vehicle', error.stack);
-      return null;
-    }
   }
 
+  @Mutation(() => Vehicle, { name: "createVehicle" })
+  async create(@Args('vehicleInput') vehicle: CreateVehicleInput): Promise<Vehicle> {
+    this.logger.log('Creating a new vehicle...');
+    const created = await this.vehicleService.create(vehicle);
+    this.logger.log(`Vehicle created successfully with ID: ${created.id}`);
+    return created;
+  }
 
-@Query(() => Vehicle, { name: "findVehicleById", nullable: true })
-async findOne(@Args("id") id: string): Promise<Vehicle | null> {
-  this.logger.log(`Fetching vehicle by ID: ${id}`);
-
-  try {
+  @Query(() => Vehicle, { name: "findVehicleById", nullable: true })
+  async findOne(@Args("id") id: string): Promise<Vehicle> {
+    this.logger.log(`Fetching vehicle by ID: ${id}`);
     const vehicle = await this.vehicleService.findOne(id);
     if (!vehicle) {
-      this.logger.warn(`No vehicle found with ID: ${id}`);
-      return null;
+      this.logger.warn(`Vehicle not found with ID: ${id}`);
+      throw new NotFoundException(`Vehicle with ID ${id} not found`);
     }
-    this.logger.log(`Vehicle found: ${vehicle.vin}`);
     return vehicle;
-    
-  } catch (error) {
-    this.logger.error(`Failed to fetch vehicle with ID: ${id}`, error.stack);
-    return null; 
   }
-}
 
-
-@Query(() => Vehicle, { name: "findVehicleByVin", nullable: true })
-async getVehicle(@Args('vin') vin: string): Promise<Vehicle | null> {
-  this.logger.log(`Fetching vehicle by VIN: ${vin}`);
-
-  try {
+  @Query(() => Vehicle, { name: "findVehicleByVin", nullable: true })
+  async getVehicle(@Args('vin') vin: string): Promise<Vehicle> {
+    this.logger.log(`Fetching vehicle by VIN: ${vin}`);
     const vehicle = await this.vehicleService.findByVin(vin);
-
     if (!vehicle) {
-      this.logger.warn(`No vehicle found with VIN: ${vin}`);
-      return null; 
+      this.logger.warn(`Vehicle not found with VIN: ${vin}`);
+      throw new NotFoundException(`Vehicle with VIN ${vin} not found`);
     }
-    this.logger.log(`Vehicle found with VIN: ${vin}`);
     return vehicle;
-  } catch (error) {
-    this.logger.error(`Failed to fetch vehicle with VIN: ${vin}`, error.stack);
-    return null; 
   }
-}
 
-
-
-@Mutation(() => Vehicle, { name: "updateVehiclle", nullable: true })
-async update(
-  @Args('id') id: string,
-  @Args('vehicle') vehicle: UpdateVehicleInput,
-): Promise<Vehicle | null> {
-  this.logger.log(`Updating vehicle with ID: ${id}`);
-  try {
-    const updated = await this.vehicleService.update(id, vehicle);
-    this.logger.log(`Vehicle updated successfully: ${id}`);
-    return updated;
-  } catch (error) {
-    this.logger.error(`Failed to update vehicle with ID: ${id}`, error.stack);
-    return null;
+  @Mutation(() => Vehicle, { name: "updateVehicle" })
+  async update(@Args('id') id: string, @Args('vehicle') vehicle: UpdateVehicleInput): Promise<Vehicle> {
+    this.logger.log(`Updating vehicle with ID: ${id}`);
+    console.log('Update input:', vehicle);
+    return await this.vehicleService.update(id, vehicle);
   }
-}
-
 
   @Mutation(() => Boolean, { name: 'removeVehicle' }) 
-  async remove(@Args('id') id: string):Promise<boolean> {
+  async remove(@Args('id') id: string): Promise<boolean> {
     this.logger.log(`Removing vehicle with ID: ${id}`);
-    try {
-      const result = await this.vehicleService.remove(id);
-      this.logger.log(`Vehicle removed successfully: ${id}`);
-      return result;
-    } catch (error) {
-      this.logger.error(`Failed to remove vehicle with ID: ${id}`, error.stack);
-      return false;
-    }
+    return await this.vehicleService.remove(id);
   }
-  
+
   @Query(() => [Vehicle], { name: "searchVehicle" })
-  async search(@Args('search', { type: () => SearchVehicleInput, nullable: true })search: SearchVehicleInput,
-  ): Promise<Vehicle[]> {
+  async search(@Args('search', { type: () => SearchVehicleInput, nullable: true }) search: SearchVehicleInput): Promise<Vehicle[]> {
     this.logger.log('Searching vehicles...');
-    try {
-      const result = await this.vehicleService.search(search);
-      this.logger.log(`Found ${result.length} matching vehicles.`);
-      return result;
-    } catch (error) {
-      this.logger.error('Failed to search vehicles', error.stack);
-      throw new Error('Failed to search vehicles');
-    }
+    return await this.vehicleService.search(search);
   }
 
   @ResolveReference()

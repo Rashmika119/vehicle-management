@@ -27,15 +27,7 @@ export class VehicleController {
     @Post('/import')
      @UseInterceptors(FileInterceptor('file'))
   async importCsv(
-@UploadedFile(
-  new ParseFilePipe({
-    validators: [
-      new FileTypeValidator({
-        fileType: /(text\/csv|application\/vnd\.ms-excel)/,
-      }),
-    ],
-  }),
-)
+  @UploadedFile()
     file: Express.Multer.File,
   ) {
     this.logger.log('Vehicle CSV import endpoint called.');
@@ -45,13 +37,14 @@ export class VehicleController {
         this.logger.warn('No file uploaded in request.');
         throw new BadRequestException('File is required.');
       }
-
-      this.logger.log(`Received file: ${file.originalname}`);
-
       if (file.size === 0) {
         this.logger.warn('Uploaded CSV file is empty.');
         throw new BadRequestException('Uploaded CSV file is empty.');
       }
+
+      if (!file.path) {
+        throw new BadRequestException('File path missing — upload might have failed');
+  }
 
       if (!file.originalname.toLowerCase().endsWith('.csv')) {
         this.logger.warn('Uploaded file is not a CSV.',file.originalname);

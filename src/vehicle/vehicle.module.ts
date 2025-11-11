@@ -37,7 +37,7 @@ import { ApolloServerPluginInlineTrace } from '@apollo/server/plugin/inlineTrace
     }),
     HttpModule,
     MulterModule.register({
-      dest: './uploads', 
+      dest: join(__dirname, '..', '..', 'uploads'),
     }),
   ],
   controllers: [VehicleController],

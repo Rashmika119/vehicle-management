@@ -3,7 +3,7 @@ import { Process, Processor } from "@nestjs/bull";
 import { InjectRepository } from "@nestjs/typeorm";
 import type { Job } from "bull";
 import csvParser from "csv-parser";
-import { Logger } from '@nestjs/common';
+import { Logger, NotFoundException } from '@nestjs/common';
 
 import * as fs from 'fs';
 import path from "path";
@@ -16,7 +16,7 @@ import { HttpService } from "@nestjs/axios";
 @Processor('csvQueue')
 export class ConsumerService {
     
-
+     
      private readonly logger = new Logger(ConsumerService.name);
 
     constructor(
@@ -43,22 +43,22 @@ export class ConsumerService {
                 try {
                     await this.saveRow(row);
                     processedRows++;
-                    console.log("Processed row:", processedRows);
+                    this.logger.log("Processed row:", processedRows);
                 } catch (error) {
                     failedRows++;
-                    console.error("Row failed to save:", error.message);
+                    this.logger.debug("Row failed to save:", error.message);
                 }
 
                 stream.resume(); 
             });
 
             stream.on('end', () => {
-                console.log("CSV processing completed!");
-                console.log(`Total rows processed: ${processedRows}`);
-                console.log(`Failed rows: ${failedRows}`);
+                this.logger.log("CSV processing completed!");
+                this.logger.log(`Total rows processed: ${processedRows}`);
+                this.logger.log(`Failed rows: ${failedRows}`);
 
                 fs.unlink(job.data.filePath, (err) => {
-                    if (err) console.error("Failed to delete file:", err);
+                    if (err) this.logger.debug("Failed to delete file:", err);
                 });
 
                 resolve({
@@ -69,7 +69,7 @@ export class ConsumerService {
             });
 
             stream.on('error', (error) => {
-                console.error('CSV reading error:', error);
+                this.logger.debug('CSV reading error:', error);
                 reject(error);
             });
         });
@@ -106,6 +106,10 @@ export class ConsumerService {
     async getAge(manufactured_date: string): Promise<number> {
         const today = new Date();
         const manufactured = new Date(manufactured_date);
+        if(!manufactured){
+            this.logger.log("manufactre date is missing");
+            throw new NotFoundException("the manufacture date is missing")
+        }
 
         let age_of_the_vehicle = today.getFullYear() - manufactured.getFullYear()
         const month_gap = today.getMonth() - manufactured.getMonth()
@@ -127,21 +131,21 @@ export class ConsumerService {
         });
 
         if (!vehicles.length) {
-            throw new Error('No vehicles found for the given age');
+            throw new NotFoundException('No vehicles found for the given age');
         }
 
         let csvContent = 'id,first_name,last_name,email,car_make,car_model,vin,manufactured_date,age_of_the_vehicle\n';
         vehicles.forEach(v => {
             csvContent += `${v.id},${v.first_name},${v.last_name},${v.email},${v.car_make},${v.car_model},${v.vin},${v.manufactured_date.toISOString()},${v.age_of_the_vehicle}\n`;
         });
-        console.log("file created")
+        this.logger.log("file created")
         const exportDir = path.join(process.cwd(),'exports');
-        console.log("file stored temporarly in location:  ", exportDir)
+        this.logger.log("file stored temporarly in location:  ", exportDir)
         if (!fs.existsSync(exportDir)) fs.mkdirSync(exportDir);
 
         const filePath = path.join(exportDir, `${job.id}.csv`);
         fs.writeFileSync(filePath, csvContent);
-        console.log('File created at', filePath); 
+        this.logger.log('File created at', filePath); 
 
 
         const payload = {
@@ -150,24 +154,24 @@ export class ConsumerService {
         message: `Export completed for vehicle age >= ${age_of_the_vehicle}`,
         clientName
     };
-    console.log("payload   :", payload);
+    this.logger.log("payload   :", payload);
 
   
     const targetUrl = 'http://localhost:3002/socket/notify';
     
-    console.log("Sending notification to:", targetUrl);
+    this.logger.log("Sending notification to:", targetUrl);
     
     try {
         const response = await firstValueFrom(
             this.httpService.post(targetUrl, payload)
         );
-        console.log('Notification sent successfully:', response.data);
+        this.logger.log('Notification sent successfully:', response.data);
     } catch (err) {
-        console.error('Error sending notification:', err.message);
-        console.error('Full error:', err.response?.data);
+        this.logger.debug('Error sending notification:', err.message);
+        this.logger.debug('Full error:', err.response?.data);
     }
     
-    console.log("publish the notification");
+    this.logger.log("publish the notification");
 
     return { success: true, filePath };
 
