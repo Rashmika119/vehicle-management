@@ -31,7 +31,7 @@ export class VehicleService {
       skip: skip,
     });
     if(!vehicles.length){
-      throw new NotFoundException(`No any vehicle detail found `)
+      return []   
     }
     return vehicles
   }
@@ -66,7 +66,6 @@ export class VehicleService {
       const savedVehicle = await this.vehicleRepository.save(vehicle);
       this.logger.log(`Vehicle created successfully with vin: ${vehicleObject.vin}`);
       return savedVehicle;
-
   }
 
 
