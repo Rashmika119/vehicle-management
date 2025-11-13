@@ -8,6 +8,8 @@ import { Vehicle } from './vehicle/entities/vehicle.entity';
 
 import { BullModule } from '@nestjs/bull';
 import { HttpModule } from '@nestjs/axios';
+import { MulterModule } from '@nestjs/platform-express';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -17,14 +19,17 @@ import { HttpModule } from '@nestjs/axios';
     BullModule.forRoot({
       redis: {
         host: 'localhost',
-        port: 6379, 
+        port: 6379,
       },
     }),
     BullModule.registerQueue({
-      name: 'csvQueue', 
+      name: 'csvQueue',
+    }),
+    MulterModule.register({
+      dest: join(__dirname, '..', '..', 'uploads'),
     }),
   ],
   controllers: [ConsumerController],
   providers: [ConsumerService, ProducerService],
 })
-export class AppModule {}
+export class AppModule { }

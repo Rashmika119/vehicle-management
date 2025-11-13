@@ -58,6 +58,7 @@ export class ConsumerService {
                 this.logger.log(`Failed rows: ${failedRows}`);
 
                 fs.unlink(job.data.filePath, (err) => {
+                    this.logger.log(`the file : ${job.data.fileName} in path :${job.data.filePath} deleted`)
                     if (err) this.logger.debug("Failed to delete file:", err);
                 });
 

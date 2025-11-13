@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException,InternalServerErrorException,Logger} from "@nestjs/common";
+import { Injectable, NotFoundException,Logger} from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Vehicle } from "./entities/vehicle.entity";
 import { HttpService } from "@nestjs/axios";
@@ -7,9 +7,6 @@ import { PaginationInput } from "./dto/pagintion.input";
 import { CreateVehicleInput } from "./dto/create-vehicle.input";
 import { UpdateVehicleInput } from "./dto/update-vehicle.input";
 import { SearchVehicleInput } from "./dto/search-vehicle.input";
-import { firstValueFrom, lastValueFrom,throwError,catchError } from "rxjs";
-import FormData from 'form-data';
-import * as fs from 'fs';
 
 @Injectable()
 export class VehicleService {
@@ -150,61 +147,4 @@ async remove(id: string): Promise<boolean> {
 
   }
 
-
-  async forwardCsvToBackground(filepath: string, fileName: string){
-    try {
-      this.logger.log("enter to the forward csv function")
-      const formData = new FormData();
-      formData.append('file', fs.createReadStream(filepath), fileName);
-
-      //------best method with error handling-------
-
-      /*const stramData=fs.createReadStream(filePath)
-      StramData.on('error',(err)=>{
-      console.log("error while reading the file ")
-      throw new error("error happened before file upload COmplete") 
-      }
-      formData.append('file',stramData,fileName)*/
-
-      const url = "http://localhost:3000/job/import";
-      console.log("endpoint of background service called")
-
-      //lastValueFrom to wait until last value comes
-      const response = await lastValueFrom(
-        this.httpService.post(url, formData, {
-          headers: formData.getHeaders(),
-
-        }).pipe(
-      catchError(err => {
-      this.logger.error('HTTP request failed:', err.message);
-      return throwError(() => new Error('Failed to send CSV to background'));
-    })
-  )
-      );
-      this.logger.log("get the format data")
-      
-      fs.unlink(filepath, (err) => {
-        if (err) console.error("Failed to delete local file: ", err)
-        this.logger.log("the tempory file deleted from the vehicle serivce")
-      })
-      this.logger.log("response data returned")
-      return response.data;
-    } catch (error) {
-      this.logger.debug("Error forwarding Csv to background service: ", error)
-      throw new Error("Failed to forward csv file")
-    }
-  }
-
-
-  // async downloadCsv(jobId: string) {
-  //   const res = await firstValueFrom(
-
-  //     this.httpService.get(`${this.backgroundServiceUrl}/download/${jobId}`, {
-  //       responseType: 'stream',
-  //     })
-  //   );
-  //   console.log("job id: ", jobId)
-  //   console.log("the background service endpoint called to download");
-  //   return res.data;
-  // }
 }

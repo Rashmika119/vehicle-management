@@ -9,7 +9,6 @@ import { MulterModule } from '@nestjs/platform-express';
 
 import { VehicleResolver } from './vehicle.resolver';
 import { Vehicle } from './entities/vehicle.entity';
-import { VehicleController } from './vehicle.controller';
 import { VehicleService } from './vehicle.service';
 import { ApolloServerPluginInlineTrace } from '@apollo/server/plugin/inlineTrace';
 
@@ -40,7 +39,7 @@ import { ApolloServerPluginInlineTrace } from '@apollo/server/plugin/inlineTrace
       dest: join(__dirname, '..', '..', 'uploads'),
     }),
   ],
-  controllers: [VehicleController],
+  controllers: [],
   providers: [VehicleService, VehicleResolver],
 })
 export class VehicleModule {}

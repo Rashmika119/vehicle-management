@@ -6,41 +6,75 @@ import { ProducerService } from '../service/producer.service';
 import path, { join } from 'path';
 import * as fs from 'fs';
 import type { Response } from 'express';
-import {NotFoundException,InternalServerErrorException,Logger} from "@nestjs/common";
-import { existsSync } from 'fs';
+import { NotFoundException, InternalServerErrorException, Logger } from "@nestjs/common";
 @Controller('job')
 export class ConsumerController {
-  private readonly logger=new Logger(ConsumerController.name)
+  private readonly logger = new Logger(ConsumerController.name)
 
-  constructor(private readonly producerService: ProducerService) { 
-        const uploadDir = join(__dirname, '..', '..', 'uploads');
-  }
+  constructor(private readonly producerService: ProducerService) {}
 
   @Post('/import')
-  @UseInterceptors(FileInterceptor('file',{ dest: './uploads' }))
-  async importCsv(@UploadedFile(
+  @UseInterceptors(FileInterceptor('file'))
+  async importCsv(
+    @UploadedFile()
+    file: Express.Multer.File,
+  ) {
+    this.logger.log('Vehicle CSV import endpoint called.');
 
-  ) file: Express.Multer.File) {
-    console.log("import endpoint called: ", file.originalname)
-    if (!file) {
-      this.logger.warn('No file received');
-      throw new BadRequestException('File is required');
-    }
-    try{
-    this.logger.log(`File received: ${file.originalname}`);
-    this.logger.debug(`File path: ${file.path}`);
-    return this.producerService.addImportJobs(file.path, file.originalname);
-    }catch(error){
-      this.logger.error(`Error while processing import file ${file.originalname}: ${error.message}`,);
+    try {
+      if (!file) {
+        this.logger.warn('No file uploaded in request.');
+        throw new BadRequestException('File is required.');
+      }
+      if (file.size === 0) {
+        this.logger.warn('Uploaded CSV file is empty.');
+        throw new BadRequestException('Uploaded CSV file is empty.');
+      }
+
+      if (!file.path) {
+        throw new BadRequestException('File path missing — upload might have failed');
+      }
+
+      if (!file.originalname.toLowerCase().endsWith('.csv')) {
+        this.logger.warn('Uploaded file is not a CSV.', file.originalname);
+        throw new BadRequestException('Only CSV files are allowed.');
+      }
+
+      this.logger.log(
+        `Forwarding CSV (${file.originalname}) to producer service...`,
+      );
+      this.logger.log(
+        `Forwarding CSV (${file.path}) to producer service...`,
+      );
+
+      const response = await this.producerService.addImportJobs(
+        file.path,
+        file.originalname,
+      );
+
+      this.logger.log(
+        `CSV file (${file.originalname}) processed successfully.`,
+      );
+
+      return {
+        message: 'CSV file uploaded and forwarded successfully.',
+        data: response,
+      };
+    } catch (error) {
+      this.logger.error(
+        `Error occurred while processing CSV file: ${error.message}`,
+        error.stack,
+      );
+
       throw new InternalServerErrorException(
-        'An error occured while importing the file. ',
+        'Failed to process the uploaded CSV file.',
       );
     }
   }
 
 
   @Post('export')
-async exportVehicles(
+  async exportVehicles(
     @Body() body: { age_of_the_vehicle: number; clientName: string },
   ) {
     try {
@@ -103,16 +137,7 @@ async exportVehicles(
       );
     }
   }
-  // @Get('download/:jobId')
-  // async downloadFile(
-  //   @Param('jobId') jobId: string,
-  //   @Res() res: ExpressResponse,
-  // ) {
-  //   console.log("called the download endpoint")
-  //   console.log("job id", jobId);
 
-  //   await this.producerService.streamCsv(jobId, res);
-  // }
 }
 
 
