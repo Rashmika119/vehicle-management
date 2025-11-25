@@ -1,4 +1,4 @@
-import { Controller, Get, Logger, InternalServerErrorException,NotFoundException } from '@nestjs/common';
+import { Controller, Get, Logger, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { VehicleService } from './vehicle.service';
 import { Vehicle } from './entities/vehicle.entity';
 import { Args, Mutation, Query, Resolver, ResolveReference } from '@nestjs/graphql';
@@ -29,7 +29,7 @@ export class VehicleResolver {
     return created;
   }
 
-  @Query(() => Vehicle, { name: "findVehicleById", nullable: true })
+  @Query(() => Vehicle, { name: "findVehicleById" })
   async findOne(@Args("id") id: string): Promise<Vehicle> {
     this.logger.log(`Fetching vehicle by ID: ${id}`);
     const vehicle = await this.vehicleService.findOne(id);
@@ -40,7 +40,7 @@ export class VehicleResolver {
     return vehicle;
   }
 
-  @Query(() => Vehicle, { name: "findVehicleByVin", nullable: true })
+  @Query(() => Vehicle, { name: "findVehicleByVin" })
   async getVehicle(@Args('vin') vin: string): Promise<Vehicle> {
     this.logger.log(`Fetching vehicle by VIN: ${vin}`);
     const vehicle = await this.vehicleService.findByVin(vin);
@@ -58,20 +58,23 @@ export class VehicleResolver {
     return await this.vehicleService.update(id, vehicle);
   }
 
-  @Mutation(() => Boolean, { name: 'removeVehicle' }) 
+  @Mutation(() => Boolean, { name: 'removeVehicle' })
   async remove(@Args('id') id: string): Promise<boolean> {
     this.logger.log(`Removing vehicle with ID: ${id}`);
     return await this.vehicleService.remove(id);
   }
 
   @Query(() => [Vehicle], { name: "searchVehicle" })
-  async search(@Args('search', { type: () => SearchVehicleInput, nullable: true }) search: SearchVehicleInput): Promise<Vehicle[]> {
+  async search(
+    @Args('search', { type: () => SearchVehicleInput, nullable: true }) search?: SearchVehicleInput,
+    @Args('pagination', {type:()=>PaginationInput, nullable: true }) pagination?: PaginationInput)
+    : Promise<Vehicle[]> {
     this.logger.log('Searching vehicles...');
-    return await this.vehicleService.search(search);
+    return await this.vehicleService.search(search,pagination);
   }
 
   @ResolveReference()
-    async resolvereferance(ref:{__typename:string,vin:string}){
+  async resolvereferance(ref: { __typename: string, vin: string }) {
     this.logger.log(`Resolving reference for vehicle VIN: ${ref.vin}`);
     try {
       const vehicle = await this.vehicleService.findByVin(ref.vin);
@@ -83,8 +86,8 @@ export class VehicleResolver {
       return vehicle;
     } catch (error) {
       this.logger.error('Failed to resolve vehicle reference', error.stack);
-      
+
     }
-    }
-  
+  }
+
 }

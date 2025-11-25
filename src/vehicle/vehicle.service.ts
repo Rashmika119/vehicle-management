@@ -126,25 +126,34 @@ async remove(id: string): Promise<boolean> {
   }
 }
 
+async search(search?: SearchVehicleInput, pagination?: PaginationInput): Promise<Vehicle[]> {
+  const model = search?.car_model?.trim() || ""; 
 
+  const page = pagination?.page || 1;
+  const limit = pagination?.limit || 100;
+  const skip = (page - 1) * limit;
 
+  const query = this.vehicleRepository
+    .createQueryBuilder('vehicle')
+    .orderBy('vehicle.manufactured_date', 'ASC')
+    .take(limit)
+    .skip(skip);
 
-  async search(search: SearchVehicleInput): Promise<Vehicle[]> {
-    const model=search?.car_model?.trim()
-    this.logger.log(`Searching vehicles with model: ${model|| 'any'}`);
-    
-      const query = this.vehicleRepository.createQueryBuilder('vehicle');
-      if (model) {
-        query.andWhere('vehicle.car_model ILIKE :car_model', { car_model: `${model}%` });
-      }
-      const results = await query.getMany();
-      if (results.length === 0) {
-        this.logger.warn(`No vehicles found for model: ${model || 'any'}`);
-        throw new NotFoundException(`No vehicles found for model: ${model || 'provided filters'}`);
+  if (model !== "") {
+    query.andWhere('vehicle.car_model ILIKE :car_model', { car_model: `${model}%` });
   }
-      this.logger.log(`Found ${results.length} vehicles for model: ${model}`);
-      return results;
 
+  const results = await query.getMany();
+
+  if (results.length === 0) {
+    this.logger.warn(`No vehicles found for model: ${model || 'any'}`);
+    // throw new NotFoundException(`No vehicles found for model: ${model || 'provided filters'}`);
+    return [];
   }
+
+  this.logger.log(`Found ${results.length} vehicles for model: ${model || 'all'}`);
+  return results;
+}
+
 
 }

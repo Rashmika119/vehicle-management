@@ -1,11 +1,12 @@
 import { Field, InputType } from "@nestjs/graphql"
-import { IsString } from "class-validator"
+import { IsOptional, IsString } from "class-validator"
 
 @InputType()
 export class SearchVehicleInput{
     
         @Field({nullable:true})
         @IsString()
+        @IsOptional()
         car_model?: string
     
 
