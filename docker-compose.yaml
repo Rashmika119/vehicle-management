@@ -1,5 +1,5 @@
 version: '3.8'
- 
+
 services:
   # Redis for BullMQ queues
   redis:
@@ -9,6 +9,12 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
- 
+
+  #apollo gateway
+  vehicle-service:
+  build: .
+  ports:
+    - "3000:3000"
+
 volumes:
   redis_data:
